@@ -1,0 +1,65 @@
+package com.sapient.IncomeCalc;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Read   {
+	String countryName;
+	String cityName;
+	String gender;
+	String currency;
+	Double averageIncome;
+	final Map<String,Double> convert = new HashMap<String,Double>(){
+		{
+			put("GBP",0.67);
+			put("INR",66.0);
+			put("SGD",1.5);
+			put("HKD",8.0);	
+		}
+	};
+	public Read(String city, String country, String gender, String currency, Double averageIncome) {
+		super();
+		this.countryName = country;
+		this.cityName = city;
+		this.gender = gender;
+		this.currency = currency;
+		this.averageIncome = averageIncome/convert.get(currency);
+	}
+	public String getCountry() {
+		return countryName;
+	}
+	public void setCountry(String country) {
+		this.countryName = country;
+	}
+	public String getCity() {
+		return cityName;
+	}
+	public void setCity(String city) {
+		this.cityName = city;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public Double getAverageIncome() {
+		return averageIncome;
+	}
+	public void setAverageIncome(Double averageIncome) {
+		this.averageIncome = averageIncome;
+	}
+	@Override
+	public String toString() {
+		return countryName + "," + gender + "," + averageIncome + "\n";
+	}
+	
+	
+}
+
